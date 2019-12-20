@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newer.dao.UserMapper">
+
+    <resultMap id="UserMap" type="User">
+       <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="status" column="status"/>
+        <result property="email" column="email"/>
+        <result property="phonePath" column="photo_path"/>
+        <result property="lastPasswordReset"  column="last_password_reset_date"/>
+
+        <!-- 用户关联的角色 -->
+        <collection property="roles" ofType="Role">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="code" column="code"/>
+            <result property="descn" column="descn"/>
+        </collection>
+    </resultMap>
+
+    <select id="login" parameterType="User" resultMap="UserMap">
+    select u.id,u.username,u.password,u.email,u.status,
+    u.PHOTO_PATH, r.NAME,r.CODE
+    from ausers u,roles r,user_role ur
+    where u.status='1' and u.username=#{username} and u.PASSWORD=#{password}
+    and u.id=ur.user_id and ur.ROLE_ID=r.id
+
+    </select>
+
+
+</mapper>
