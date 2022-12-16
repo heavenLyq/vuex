@@ -20,7 +20,7 @@
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <junit.version>4.12</junit.version>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-    <spring.version>5.0.7.RELEASE</spring.version>
+    <spring.version>5.2.20.RELEASE</spring.version>
     <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
     <aspectjweaver.version>1.9.1</aspectjweaver.version>
     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
